@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Driver Registration</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #7BCCBA;
+        }
+        
+        .registration-box {
+            width: 400px;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: #9DE0D1;
+        }
+
+        .registration-box h1{
+            text-align: center;
+        }
+        
+        .registration-box label,
+        .registration-box input[type="submit"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .registration-box input[type="text"],
+        .registration-box input[type="email"],
+        .registration-box input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        .registration-box input[type="submit"] {
+            background-color: brown;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-box">
+        <h1>Driver Registration</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="driverName">Name:</label>
+            <input type="text" name="driverName" required>
+            
+            <label for="driverID">ID:</label>
+            <input type="text" name="driverID" required>
+            
+            <label for="driverPhone">Phone:</label>
+            <input type="text" name="driverPhone" required>
+            
+            <label for="driverEmail">Email:</label>
+            <input type="email" name="driverEmail" required>
+            
+            <label for="driverPassword">Password:</label>
+            <input type="password" name="driverPassword" required>
+            
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - Driver</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #7BCCBA;
+        }
+        
+        .dashboard-box {
+            width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #baefe4;
+        }
+        
+        .dashboard-box h1,
+        .dashboard-box p {
+            margin-bottom: 10px;
+        }
+        
+        .dashboard-box h1 {
+            color: #333;
+        }
+        
+        .dashboard-box p {
+            color: #666;
+        }
+        
+        .dashboard-box a {
+            margin-right: 10px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        
+        .dashboard-box a:hover {
+            text-decoration: underline;
+        }
+        
+        .dashboard-box .user-info {
+            margin-bottom: 20px;
+        }
+        
+        .dashboard-box .user-info p {
+            margin-bottom: 5px;
+        }
+        
+        .dashboard-box .actions {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border: 3px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        
+        .dashboard-box .actions a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        
+        .dashboard-box .actions a:hover {
+            text-decoration: underline;
+        }
+        
+        .dashboard-box table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ff0000;
+        }
+        
+        .dashboard-box th,
+        .dashboard-box td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ff0000;
+        }
+        
+        .dashboard-box th {
+            background-color: #ff0000;
+            color: #fff;
+        }
+        
+        .dashboard-box tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .logout{
+            margin-top: 30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="dashboard-box">
+        <h1>Welcome, {{ driver.driverName }}!</h1>
+        <p>Driver ID: {{ driver.driverID }}</p>
+        <p>Email: {{ driver.driverEmail }}</p>
+        <p>Phone: {{ driver.driverPhone }}</p>
+        <br>
+        <div class="actions">
+            <a href="/my_page/update/driver/">Update Information</a>
+            <a href="/my_page/delete/driver/">Delete Account</a>
+        </div>
+        <br>
+        
+        <h2>Assigned Bookings:</h2>
+        <table>
+            <tr>
+                <th>Booking No</th>
+                <th>Student ID</th>
+                <th>Student Phone</th>
+                <th>Booking Date</th>
+                <th>Booking Time</th>
+            </tr>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.bookingNo }}</td>
+                <td>{{ booking.studentID.studentID }}</td>
+                <td>{{ booking.studentID.studentPhone }}</td>
+                <td>{{ booking.bookingDate }}</td>
+                <td>{{ booking.bookingTime }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <div class="logout">
+            <button ><a href="/my_page/">Logout</a></button>
+        </div>
+
+    </div>
+</body>
+</html>

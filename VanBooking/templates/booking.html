@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #7BCCBA;
+        }
+        
+        .booking-box {
+            width: 400px;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: #9DE0D1;
+        }
+
+        .booking-box h1{
+            text-align: center;
+        }
+        
+        
+        .booking-box h1,
+        .booking-box h2,
+        .booking-box button {
+            margin-bottom: 10px;
+        }
+        
+        .booking-box button {
+            background-color: brown;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-box">
+        <h1>Book a Van</h1>
+        <h3>Student ID: {{ student.studentID }}</h3>
+        <h3>Student Email: {{ student.studentEmail }}</h3>
+        
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Book</button>
+        </form>
+    </div>
+</body>
+</html>

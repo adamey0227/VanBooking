@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <style>
+        body {
+            background-color: #7BCCBA;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+        }
+        
+        .registration-box {
+            width: 400px;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: #9DE0D1;
+        }
+
+        .registration-box h1{
+            text-align: center;
+        }
+        
+        .registration-box label,
+        .registration-box input[type="submit"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .registration-box input[type="text"],
+        .registration-box input[type="email"],
+        .registration-box input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        .registration-box input[type="submit"] {
+            background-color: brown;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-box">
+        <h1>Student Registration</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="studentName">Name:</label>
+            <input type="text" name="studentName" required>
+            
+            <label for="studentID">ID:</label>
+            <input type="text" name="studentID" required>
+            
+            <label for="studentPhone">Phone:</label>
+            <input type="text" name="studentPhone" required>
+            
+            <label for="studentEmail">Email:</label>
+            <input type="email" name="studentEmail" required>
+            
+            <label for="studentPassword">Password:</label>
+            <input type="password" name="studentPassword" required>
+            
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>

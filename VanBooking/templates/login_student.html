@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #7BCCBA;
+        }
+        
+        .login-box {
+            width: 400px;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: #9DE0D1;
+        }
+
+        .login-box h1{
+            text-align: center;
+        }
+        
+        .login-box label,
+        .login-box input[type="submit"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .login-box input[type="email"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        .login-box input[type="submit"] {
+            background-color: brown;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h1>Student Login</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+            {% endif %}
+            <label for="studentEmail">Email:</label>
+            <input type="email" name="studentEmail" required>
+            
+            <label for="studentPassword">Password:</label>
+            <input type="password" name="studentPassword" required>
+            
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+</body>
+</html>

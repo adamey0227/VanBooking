@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Driver Information</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #7BCCBA;
+        }
+        
+        .update-box {
+            width: 400px;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: #9DE0D1;
+        }
+        
+        .update-box h1{
+            text-align: center;
+        }
+
+        .update-box label,
+        .update-box input[type="submit"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .update-box input[type="text"],
+        .update-box input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        .update-box input[type="submit"] {
+            background-color: brown;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="update-box">
+        <h1>Update Driver Information</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="driverName">Name:</label>
+            <input type="text" name="driverName" value="{{ driver.driverName }}" required>
+            
+            <label for="driverPhone">Phone:</label>
+            <input type="text" name="driverPhone" value="{{ driver.driverPhone }}" required>
+            
+            <label for="driverEmail">Email:</label>
+            <input type="email" name="driverEmail" value="{{ driver.driverEmail }}" required>
+            
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</body>
+</html>
